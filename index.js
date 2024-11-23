@@ -5,7 +5,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: true });
 
 const clashApi = axios.create({
-  baseURL: 'https://api.clashofclans.com/v1',
+  baseURL: 'https://proxy.royaleapi.dev/v1',
   headers: {
     Authorization: `Bearer ${process.env.CLASH_API_TOKEN}`
   }
