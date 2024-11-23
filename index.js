@@ -5,7 +5,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: true });
 
 const clashApi = axios.create({
-  baseURL: 'https://proxy.royaleapi.dev/v1',
+  baseURL: 'https://cocproxy.royaleapi.dev/v1',
   headers: {
     Authorization: `Bearer ${process.env.CLASH_API_TOKEN}`
   }
@@ -21,11 +21,11 @@ bot.onText(/\/clan (.+)/, async (msg, match) => {
     const clan = response.data;
 
     const message = `
-🏰 Clan: ${clan.name}
-🏆 Trophies: ${clan.clanPoints}
-👥 Members: ${clan.members}
-🌍 Location: ${clan.location ? clan.location.name : 'N/A'}
-📊 Level: ${clan.clanLevel}
+🏰 Clan -> ${clan.name}
+🏆 Trophies -> ${clan.clanPoints}
+👥 Members -> ${clan.members}
+🌍 Location -> ${clan.location ? clan.location.name : 'N/A'}
+📊 Level -> ${clan.clanLevel}
     `;
     bot.sendMessage(chatId, message);
   } catch (error) {
